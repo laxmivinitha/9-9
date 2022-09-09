@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+ struct node{
+ 	int data;
+ 	struct node *ref;
+ };
+ 
+void insert_end();
+void search();
+ struct node *head,*temp;
+ 
+ int main()
+ {
+ 	insert_end();
+ 	insert_end();
+ 	insert_end();
+ 	insert_end();
+ 	search();
+ 	return 0;
+ }
+ 
+ void insert_end()
+ {
+ 	int val; 
+	 struct node *ptr;
+ 	ptr=(struct node *)malloc(sizeof(struct node));
+ 	printf("Enter value into newnode");
+ 	scanf("%d",&val);
+ 	ptr->data=val;
+ 	ptr->ref=NULL;
+ 	temp=head;
+ 	if(head==NULL)
+ 	{
+ 	head=ptr;
+    }
+ 	else
+ 	{
+ 		while(temp->ref!=NULL)
+ 		{
+ 			temp=temp->ref;
+		 }
+		 temp->ref=ptr;
+		// printf("Node inserted succesfully!!");
+	 }
+ }
+ 
+ 
+ void search()
+ {
+ 	temp=head;
+ 	int key;
+ 	printf("Enter search value");
+ 	scanf("%d",&key);
+ 	while(temp!=NULL)
+ 	{
+ 		if(temp->data==key)
+ 		printf("%d is found at %d",key,temp);
+ 		temp=temp->ref;
+	 }
+}
