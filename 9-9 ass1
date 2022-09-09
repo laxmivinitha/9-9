@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+ struct node{
+ 	int data;
+ 	struct node *ref;
+ };
+ 
+void insert_end();
+void display();
+ struct node *head,*temp;
+ 
+ int main()
+ {
+  	display();
+ 	insert_end();
+ 	insert_end();
+ 	insert_end();
+ 	insert_end();
+ 	display();
+ 	return 0;
+ }
+ 
+ void insert_end()
+ {
+ 	int val; 
+	 struct node *ptr;
+ 	ptr=(struct node *)malloc(sizeof(struct node));
+ 	printf("Enter value into newnode");
+ 	scanf("%d",&val);
+ 	ptr->data=val;
+ 	ptr->ref=NULL;
+ 	temp=head;
+ 	if(head==NULL)
+ 	{
+ 	head=ptr;
+    }
+ 	else
+ 	{
+ 		while(temp->ref!=NULL)
+ 		{
+ 			temp=temp->ref;
+		 }
+		 temp->ref=ptr;
+		// printf("Node inserted succesfully!!");
+	 }
+ }
+ 
+ 
+ void display()
+ {
+ 	temp=head;
+ 	while(temp!=NULL)
+ 	{
+ 		printf("%d\n",temp->data);
+ 		temp=temp->ref;
+	 }
+ }
